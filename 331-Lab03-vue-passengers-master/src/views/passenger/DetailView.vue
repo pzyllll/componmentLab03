@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { toRefs, defineProps,onMounted, watch } from 'vue'
-import { type Data } from '@/types'
+import { type Data, type PassengerData } from '@/types'
 import { useRoute } from 'vue-router';
 import PassengerServices from '@/services/PassengerServices';
 import FlashMessage from '@/components/FlashMessage.vue';
 
 const route = useRoute();
-const Airline = ref<Data | null>(null);
+const passenger = ref<PassengerData | null>(null);
 const showFlashMessage = ref(false);
 const flashMessage = ref('');
 const props = defineProps<{
@@ -19,7 +19,7 @@ const { data } = toRefs(props)
 <template>
   <div v-if="data">
     <h1>{{ data.name }}</h1>
-    <p>{{ data.name }} has tripped {{ data.trips }} times</p>
+    <p>{{ data.name }} has\ tripped {{ data.trips }} times</p>
     <h2>Airlines</h2>
     <ul>
       <li v-for="airline in data.airline" :key="airline._id">

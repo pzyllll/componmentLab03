@@ -13,7 +13,7 @@ const flashMessage = ref('');
 onMounted(async () => {
   try {
     const response = await PassengerServices.getPassenger(route.params.id as string);
-    passenger.value = response.data;
+    passenger.value = response;
   } catch (error) {
     console.error('Passenger not found', error);
   }
@@ -59,4 +59,16 @@ const closeFlashMessage = () => {
 
 <style scoped>
 /* Add any additional styles here */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
 </style>

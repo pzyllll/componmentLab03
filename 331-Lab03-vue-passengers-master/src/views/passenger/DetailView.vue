@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { toRefs, defineProps } from 'vue'
+import { toRefs, defineProps,onMounted, watch } from 'vue'
 import { type Data } from '@/types'
+import { useRoute } from 'vue-router';
+import PassengerServices from '@/services/PassengerServices';
+import FlashMessage from '@/components/FlashMessage.vue';
 
+const route = useRoute();
+const Airline = ref<Data | null>(null);
+const showFlashMessage = ref(false);
+const flashMessage = ref('');
 const props = defineProps<{
     data: Data
     id: string

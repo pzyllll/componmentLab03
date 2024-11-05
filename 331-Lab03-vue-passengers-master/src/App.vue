@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
 import { storeToRefs } from 'pinia'
+import 'nprogress/nprogress.css'
 
 const store = useMessageStore()
 const { message } = storeToRefs(store)
